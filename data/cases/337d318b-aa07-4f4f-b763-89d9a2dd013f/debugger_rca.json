@@ -1,0 +1,468 @@
+{
+  "task_id": "337d318b-aa07-4f4f-b763-89d9a2dd013f",
+  "instruction": "Cross-check the invoices with the bank statements and identify any discrepancies. Then pull out the invoices that don't match the statements and put them in the \"problematic\" folder.",
+  "app_id": "multi_apps",
+  "traj_path": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f",
+  "status": "failure",
+  "total_steps": 50,
+  "terminal_step": 50,
+  "root_error_step": 2,
+  "taxonomy_tag": "R4",
+  "evidence": "At step 2, the agent initiates an inefficient strategy (R4) to install software ('poppler-utils') to convert PDFs to text, hallucinating that this was 'mentioned in the instructions'. This process, along with resolving repository issues (steps 3-23) and correcting naming errors caused by misperceiving 'GES' as 'GE5' (steps 24-30), consumed the vast majority of the 50-step limit, resulting in a timeout before the agent could even begin comparing the documents.",
+  "correction": "The agent should have used the pre-installed Document Viewer (Evince) to read the PDF files directly instead of attempting to install poppler-utils and convert them to text via the terminal. This would have saved over 30 steps and avoided the naming confusion caused by terminal interactions.",
+  "confidence": 0.9,
+  "model": "gemini-3-flash",
+  "created_at": "2026-03-26T23:14:25.864802",
+  "steps": [
+    {
+      "step_num": 1,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.sleep(0.1)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_1_20251030@171258858777.png"
+    },
+    {
+      "step_num": 2,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(23, 449)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_2_20251030@171338172266.png"
+    },
+    {
+      "step_num": 3,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('s')\npyautogui.press('u')\npyautogui.press('d')\npyautogui.press('o')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('p')\npyautogui.press('t')\npyautogui.press('-')\npyautogui.press('g')\npyautogui.press('e')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('s')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('l')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('y')\npyautogui.press(' ')\npyautogui.press('p')\npyautogui.press('o')\npyautogui.press('p')\npyautogui.press('p')\npyautogui.press('l')\npyautogui.press('e')\npyautogui.press('r')\npyautogui.press('-')\npyautogui.press('u')\npyautogui.press('t')\npyautogui.press('i')\npyautogui.press('l')\npyautogui.press('s')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_3_20251030@171355765613.png"
+    },
+    {
+      "step_num": 4,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_4_20251030@171432559457.png"
+    },
+    {
+      "step_num": 5,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('o')\npyautogui.press('s')\npyautogui.press('w')\npyautogui.press('o')\npyautogui.press('r')\npyautogui.press('l')\npyautogui.press('d')\npyautogui.press('-')\npyautogui.press('p')\npyautogui.press('u')\npyautogui.press('b')\npyautogui.press('l')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('-')\npyautogui.press('e')\npyautogui.press('v')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('u')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('i')\npyautogui.press('o')\npyautogui.press('n')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_5_20251030@171557540137.png"
+    },
+    {
+      "step_num": 6,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_6_20251030@171628352236.png"
+    },
+    {
+      "step_num": 7,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('s')\npyautogui.press('u')\npyautogui.press('d')\npyautogui.press('o')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('p')\npyautogui.press('t')\npyautogui.press('-')\npyautogui.press('g')\npyautogui.press('e')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('u')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('e')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_7_20251030@171657203875.png"
+    },
+    {
+      "step_num": 8,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_8_20251030@171801287105.png"
+    },
+    {
+      "step_num": 9,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.sleep(0.5)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_9_20251030@171829946523.png"
+    },
+    {
+      "step_num": 10,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('s')\npyautogui.press('u')\npyautogui.press('d')\npyautogui.press('o')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('p')\npyautogui.press('t')\npyautogui.press('-')\npyautogui.press('g')\npyautogui.press('e')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('s')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('l')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('y')\npyautogui.press(' ')\npyautogui.press('p')\npyautogui.press('o')\npyautogui.press('p')\npyautogui.press('p')\npyautogui.press('l')\npyautogui.press('e')\npyautogui.press('r')\npyautogui.press('-')\npyautogui.press('u')\npyautogui.press('t')\npyautogui.press('i')\npyautogui.press('l')\npyautogui.press('s')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_10_20251030@171906313131.png"
+    },
+    {
+      "step_num": 11,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_11_20251030@171934220395.png"
+    },
+    {
+      "step_num": 12,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.sleep(0.5)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_12_20251030@172009261871.png"
+    },
+    {
+      "step_num": 13,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.sleep(0.5)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_13_20251030@172134764830.png"
+    },
+    {
+      "step_num": 14,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_14_20251030@172216463719.png"
+    },
+    {
+      "step_num": 15,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('c')\npyautogui.press('d')\npyautogui.press(' ')\npyautogui.press('~')\npyautogui.press('/')\npyautogui.press('D')\npyautogui.press('e')\npyautogui.press('s')\npyautogui.press('k')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('p')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_15_20251030@172338562316.png"
+    },
+    {
+      "step_num": 16,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_16_20251030@172433534685.png"
+    },
+    {
+      "step_num": 17,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('l')\npyautogui.press('s')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('l')\npyautogui.press('a')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_17_20251030@172555544461.png"
+    },
+    {
+      "step_num": 18,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_18_20251030@172638059996.png"
+    },
+    {
+      "step_num": 19,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('B')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('k')\npyautogui.press('-')\npyautogui.press('S')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('m')\npyautogui.press('e')\npyautogui.press('n')\npyautogui.press('t')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('\"')\npyautogui.press(' ')\npyautogui.press('b')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('k')\npyautogui.press('-')\npyautogui.press('s')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('m')\npyautogui.press('e')\npyautogui.press('n')\npyautogui.press('t')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_19_20251030@172714448091.png"
+    },
+    {
+      "step_num": 20,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_20_20251030@172801108681.png"
+    },
+    {
+      "step_num": 21,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press(' ')\npyautogui.press('#')\npyautogui.press(' ')\npyautogui.press('2')\npyautogui.press('4')\npyautogui.press('3')\npyautogui.press('7')\npyautogui.press('2')\npyautogui.press('9')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('\"')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('1')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_21_20251030@172830658135.png"
+    },
+    {
+      "step_num": 22,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_22_20251030@172901120378.png"
+    },
+    {
+      "step_num": 23,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press(' ')\npyautogui.press('#')\npyautogui.press(' ')\npyautogui.press('G')\npyautogui.press('E')\npyautogui.press('5')\npyautogui.press('-')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('2')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('2')\npyautogui.press('1')\npyautogui.press('5')\npyautogui.press('-')\npyautogui.press('8')\npyautogui.press('2')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('\"')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('2')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_23_20251030@172941614712.png"
+    },
+    {
+      "step_num": 24,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_24_20251030@173126840172.png"
+    },
+    {
+      "step_num": 25,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('l')\npyautogui.press('s')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('l')\npyautogui.press('a')\npyautogui.press(' ')\npyautogui.press('|')\npyautogui.press(' ')\npyautogui.press('g')\npyautogui.press('r')\npyautogui.press('e')\npyautogui.press('p')\npyautogui.press(' ')\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_25_20251030@173158236896.png"
+    },
+    {
+      "step_num": 26,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_26_20251030@173244540405.png"
+    },
+    {
+      "step_num": 27,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('l')\npyautogui.press('s')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('1')\npyautogui.press(' ')\npyautogui.press('*')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_27_20251030@173322799832.png"
+    },
+    {
+      "step_num": 28,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_28_20251030@173353701278.png"
+    },
+    {
+      "step_num": 29,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press(\"'\")\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press(' ')\npyautogui.press('#')\npyautogui.press(' ')\npyautogui.press('G')\npyautogui.press('E')\npyautogui.press('5')\npyautogui.press('-')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('2')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('2')\npyautogui.press('1')\npyautogui.press('5')\npyautogui.press('-')\npyautogui.press('8')\npyautogui.press('2')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press(\"'\")\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('2')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_29_20251030@173438321355.png"
+    },
+    {
+      "step_num": 30,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_30_20251030@173516873528.png"
+    },
+    {
+      "step_num": 31,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('f')\npyautogui.press('o')\npyautogui.press('r')\npyautogui.press(' ')\npyautogui.press('f')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press(' ')\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('*')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press(';')\npyautogui.press(' ')\npyautogui.press('d')\npyautogui.press('o')\npyautogui.press(' ')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('$')\npyautogui.press('f')\npyautogui.press('\"')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('$')\npyautogui.press('{')\npyautogui.press('f')\npyautogui.press('%')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('}')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press('\"')\npyautogui.press(';')\npyautogui.press(' ')\npyautogui.press('d')\npyautogui.press('o')\npyautogui.press('n')\npyautogui.press('e')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_31_20251030@173545481837.png"
+    },
+    {
+      "step_num": 32,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_32_20251030@173615972190.png"
+    },
+    {
+      "step_num": 33,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('l')\npyautogui.press('s')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('l')\npyautogui.press('a')\npyautogui.press(' ')\npyautogui.press('*')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_33_20251030@173652653125.png"
+    },
+    {
+      "step_num": 34,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_34_20251030@173915446197.png"
+    },
+    {
+      "step_num": 35,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press('t')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press(\"'\")\npyautogui.press('I')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press(' ')\npyautogui.press('T')\npyautogui.press('I')\npyautogui.press('J')\npyautogui.press('-')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('2')\npyautogui.press('2')\npyautogui.press('0')\npyautogui.press('3')\npyautogui.press('0')\npyautogui.press('1')\npyautogui.press('-')\npyautogui.press('9')\npyautogui.press('0')\npyautogui.press('.')\npyautogui.press('p')\npyautogui.press('d')\npyautogui.press('f')\npyautogui.press(\"'\")\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('3')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_35_20251030@173937582615.png"
+    },
+    {
+      "step_num": 36,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_36_20251030@174017496640.png"
+    },
+    {
+      "step_num": 37,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('c')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('b')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('k')\npyautogui.press('-')\npyautogui.press('s')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('m')\npyautogui.press('e')\npyautogui.press('n')\npyautogui.press('t')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_37_20251030@174051187012.png"
+    },
+    {
+      "step_num": 38,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_38_20251030@174123427925.png"
+    },
+    {
+      "step_num": 39,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.scroll(5, 640, 200)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_39_20251030@174159592195.png"
+    },
+    {
+      "step_num": 40,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.scroll(10, 640, 200)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_40_20251030@174311525842.png"
+    },
+    {
+      "step_num": 41,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.scroll(10, 640, 200)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_41_20251030@174333372892.png"
+    },
+    {
+      "step_num": 42,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('q')\npyautogui.keyUp('q')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_42_20251030@174409207660.png"
+    },
+    {
+      "step_num": 43,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_43_20251030@174520454980.png"
+    },
+    {
+      "step_num": 44,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('c')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('b')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('k')\npyautogui.press('-')\npyautogui.press('s')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press('e')\npyautogui.press('m')\npyautogui.press('e')\npyautogui.press('n')\npyautogui.press('t')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('>')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('y')\npyautogui.press('s')\npyautogui.press('i')\npyautogui.press('s')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_44_20251030@174600941829.png"
+    },
+    {
+      "step_num": 45,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_45_20251030@174642441738.png"
+    },
+    {
+      "step_num": 46,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('e')\npyautogui.press('c')\npyautogui.press('h')\npyautogui.press('o')\npyautogui.press(' ')\npyautogui.press('\"')\npyautogui.press('=')\npyautogui.press('=')\npyautogui.press('=')\npyautogui.press(' ')\npyautogui.press('I')\npyautogui.press('N')\npyautogui.press('V')\npyautogui.press('O')\npyautogui.press('I')\npyautogui.press('C')\npyautogui.press('E')\npyautogui.press(' ')\npyautogui.press('1')\npyautogui.press(' ')\npyautogui.press('=')\npyautogui.press('=')\npyautogui.press('=')\npyautogui.press('\"')\npyautogui.press(' ')\npyautogui.press('>')\npyautogui.press('>')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('y')\npyautogui.press('s')\npyautogui.press('i')\npyautogui.press('s')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('&')\npyautogui.press('&')\npyautogui.press(' ')\npyautogui.press('c')\npyautogui.press('a')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('i')\npyautogui.press('n')\npyautogui.press('v')\npyautogui.press('o')\npyautogui.press('i')\npyautogui.press('c')\npyautogui.press('e')\npyautogui.press('1')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('>')\npyautogui.press('>')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('y')\npyautogui.press('s')\npyautogui.press('i')\npyautogui.press('s')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_46_20251030@174709159088.png"
+    },
+    {
+      "step_num": 47,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_47_20251030@174746964165.png"
+    },
+    {
+      "step_num": 48,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('l')\npyautogui.press('s')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('1')\npyautogui.press(' ')\npyautogui.press('*')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('|')\npyautogui.press(' ')\npyautogui.press('g')\npyautogui.press('r')\npyautogui.press('e')\npyautogui.press('p')\npyautogui.press(' ')\npyautogui.press('-')\npyautogui.press('v')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('y')\npyautogui.press('s')\npyautogui.press('i')\npyautogui.press('s')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_48_20251030@174823702068.png"
+    },
+    {
+      "step_num": 49,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_49_20251030@174902331526.png"
+    },
+    {
+      "step_num": 50,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('g')\npyautogui.press('e')\npyautogui.press('d')\npyautogui.press('i')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('a')\npyautogui.press('n')\npyautogui.press('a')\npyautogui.press('l')\npyautogui.press('y')\npyautogui.press('s')\npyautogui.press('i')\npyautogui.press('s')\npyautogui.press('.')\npyautogui.press('t')\npyautogui.press('x')\npyautogui.press('t')\npyautogui.press(' ')\npyautogui.press('&')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/multi_apps/337d318b-aa07-4f4f-b763-89d9a2dd013f/step_50_20251030@175001197311.png"
+    }
+  ]
+}

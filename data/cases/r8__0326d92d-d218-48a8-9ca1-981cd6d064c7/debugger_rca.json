@@ -1,0 +1,468 @@
+{
+  "task_id": "0326d92d-d218-48a8-9ca1-981cd6d064c7",
+  "instruction": "Calculate the total sales in an underneath row called \"Total\" and display the total of each month as bars. Then calculate the month-on-month growth percentage for Feb to Jun in another row called \"Growth\" and show them in a line chart (Jan should be omitted in the chart as well). Set the chart titles as the two row headers respectively.",
+  "app_id": "libreoffice_calc",
+  "traj_path": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7",
+  "status": "failure",
+  "total_steps": 50,
+  "terminal_step": 50,
+  "root_error_step": 11,
+  "taxonomy_tag": "R8",
+  "evidence": "In step 9, the agent successfully calculates the total for February in cell C12. In step 10, it moves the focus to cell D12 using the Tab key. However, in step 11, its reasoning indicates it still believes it needs to calculate the total for February ('Now let's calculate the total for February (C12)'), and it proceeds to type the February formula (=SUM(C2:C11)) into cell D12. This redundant and misplaced action is the first in a series of inefficient and error-prone behaviors (including forgetting to commit formulas and selecting incorrect chart ranges) that ultimately lead to a timeout at step 50.",
+  "correction": "The agent should have tracked its progress more accurately to avoid repeating calculations. After completing the total for February (C12) in step 9 and moving to D12 in step 10, it should have proceeded to calculate the total for March in cell D12. More importantly, to avoid hitting the step limit, the agent should have used a more efficient strategy, such as dragging the sum formula from B12 across the row to G12, rather than calculating each cell individually.",
+  "confidence": 0.9,
+  "model": "gemini-3-flash",
+  "created_at": "2026-03-26T23:16:45.661252",
+  "steps": [
+    {
+      "step_num": 1,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.sleep(0.1)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_1_20251030@152309702987.png"
+    },
+    {
+      "step_num": 2,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(85, 314)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_2_20251030@152331623013.png"
+    },
+    {
+      "step_num": 3,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('T')\npyautogui.press('o')\npyautogui.press('t')\npyautogui.press('a')\npyautogui.press('l')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_3_20251030@152340030339.png"
+    },
+    {
+      "step_num": 4,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_4_20251030@152349743102.png"
+    },
+    {
+      "step_num": 5,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('B')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('B')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_5_20251030@152412557498.png"
+    },
+    {
+      "step_num": 6,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_6_20251030@152436617148.png"
+    },
+    {
+      "step_num": 7,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('C')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('C')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_7_20251030@152446927296.png"
+    },
+    {
+      "step_num": 8,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_8_20251030@152506199451.png"
+    },
+    {
+      "step_num": 9,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('D')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('D')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_9_20251030@152523534398.png"
+    },
+    {
+      "step_num": 10,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_10_20251030@152547485641.png"
+    },
+    {
+      "step_num": 11,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('E')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('E')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_11_20251030@152615130318.png"
+    },
+    {
+      "step_num": 12,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_12_20251030@152703643917.png"
+    },
+    {
+      "step_num": 13,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('F')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('F')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_13_20251030@152722247400.png"
+    },
+    {
+      "step_num": 14,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_14_20251030@152750512435.png"
+    },
+    {
+      "step_num": 15,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('S')\npyautogui.press('U')\npyautogui.press('M')\npyautogui.press('(')\npyautogui.press('G')\npyautogui.press('2')\npyautogui.press(':')\npyautogui.press('G')\npyautogui.press('1')\npyautogui.press('1')\npyautogui.press(')')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_15_20251030@152809489351.png"
+    },
+    {
+      "step_num": 16,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_16_20251030@152823608418.png"
+    },
+    {
+      "step_num": 17,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('G')\npyautogui.press('r')\npyautogui.press('o')\npyautogui.press('w')\npyautogui.press('t')\npyautogui.press('h')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_17_20251030@152834348676.png"
+    },
+    {
+      "step_num": 18,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab tab')\npyautogui.keyUp('tab tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_18_20251030@152853417904.png"
+    },
+    {
+      "step_num": 19,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(202, 326)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_19_20251030@152913482115.png"
+    },
+    {
+      "step_num": 20,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('(')\npyautogui.press('C')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('-')\npyautogui.press('B')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press(')')\npyautogui.press('/')\npyautogui.press('B')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('*')\npyautogui.press('1')\npyautogui.press('0')\npyautogui.press('0')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_20_20251030@152951478619.png"
+    },
+    {
+      "step_num": 21,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_21_20251030@153009445397.png"
+    },
+    {
+      "step_num": 22,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('(')\npyautogui.press('D')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('-')\npyautogui.press('C')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press(')')\npyautogui.press('/')\npyautogui.press('C')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('*')\npyautogui.press('1')\npyautogui.press('0')\npyautogui.press('0')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_22_20251030@153049434881.png"
+    },
+    {
+      "step_num": 23,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_23_20251030@153101229861.png"
+    },
+    {
+      "step_num": 24,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('(')\npyautogui.press('E')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('-')\npyautogui.press('D')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press(')')\npyautogui.press('/')\npyautogui.press('D')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('*')\npyautogui.press('1')\npyautogui.press('0')\npyautogui.press('0')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_24_20251030@153127867128.png"
+    },
+    {
+      "step_num": 25,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_25_20251030@153157553189.png"
+    },
+    {
+      "step_num": 26,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('(')\npyautogui.press('F')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('-')\npyautogui.press('E')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press(')')\npyautogui.press('/')\npyautogui.press('E')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('*')\npyautogui.press('1')\npyautogui.press('0')\npyautogui.press('0')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_26_20251030@153226260858.png"
+    },
+    {
+      "step_num": 27,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('tab')\npyautogui.keyUp('tab')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_27_20251030@153256758505.png"
+    },
+    {
+      "step_num": 28,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.press('=')\npyautogui.press('(')\npyautogui.press('G')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('-')\npyautogui.press('F')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press(')')\npyautogui.press('/')\npyautogui.press('F')\npyautogui.press('1')\npyautogui.press('2')\npyautogui.press('*')\npyautogui.press('1')\npyautogui.press('0')\npyautogui.press('0')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_28_20251030@153316092240.png"
+    },
+    {
+      "step_num": 29,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('return')\npyautogui.keyUp('return')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_29_20251030@153410469361.png"
+    },
+    {
+      "step_num": 30,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(150, 181)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_30_20251030@153445043432.png"
+    },
+    {
+      "step_num": 31,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('shift')\npyautogui.click(407, 314)\npyautogui.keyUp('shift')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_31_20251030@153506040051.png"
+    },
+    {
+      "step_num": 32,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(85, 181)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_32_20251030@153541577720.png"
+    },
+    {
+      "step_num": 33,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(150, 181)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_33_20251030@153609682735.png"
+    },
+    {
+      "step_num": 34,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('shift')\npyautogui.click(407, 314)\npyautogui.keyUp('shift')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_34_20251030@153700520728.png"
+    },
+    {
+      "step_num": 35,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(152, 50)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_35_20251030@153815948097.png"
+    },
+    {
+      "step_num": 36,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(169, 84)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_36_20251030@153847335472.png"
+    },
+    {
+      "step_num": 37,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(522, 290)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_37_20251030@153910772381.png"
+    },
+    {
+      "step_num": 38,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(532, 275)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_38_20251030@153955721860.png"
+    },
+    {
+      "step_num": 39,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(819, 507)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_39_20251030@154015911237.png"
+    },
+    {
+      "step_num": 40,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(385, 289)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_40_20251030@154042818722.png"
+    },
+    {
+      "step_num": 41,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(880, 507)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_41_20251030@154110187122.png"
+    },
+    {
+      "step_num": 42,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(150, 181)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_42_20251030@154128735046.png"
+    },
+    {
+      "step_num": 43,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('shift')\npyautogui.click(407, 181)\npyautogui.keyUp('shift')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_43_20251030@154155922041.png"
+    },
+    {
+      "step_num": 44,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('ctrl')\npyautogui.click(150, 314)\npyautogui.keyUp('ctrl')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_44_20251030@154230263435.png"
+    },
+    {
+      "step_num": 45,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.keyDown('ctrl')\npyautogui.keyDown('shift')\npyautogui.click(407, 314)\npyautogui.keyUp('shift')\npyautogui.keyUp('ctrl')\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_45_20251030@154253148250.png"
+    },
+    {
+      "step_num": 46,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(152, 50)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_46_20251030@154350433320.png"
+    },
+    {
+      "step_num": 47,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(169, 84)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_47_20251030@154415239523.png"
+    },
+    {
+      "step_num": 48,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(819, 507)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_48_20251030@154444683445.png"
+    },
+    {
+      "step_num": 49,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.click(819, 507)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_49_20251030@154515956226.png"
+    },
+    {
+      "step_num": 50,
+      "action_type": "tool_use",
+      "action_code": "pyautogui.tripleClick(788, 306)\n",
+      "error": "",
+      "reward": 0.0,
+      "done": false,
+      "screenshot": "/home/ubuntu/GUIAgentDebug/results/input_trajectory/results_claude-sonnet-4-5-20250929_50steps/claude_computer_use/screenshot/global.anthropic.claude-sonnet-4-5-20250929-v1:0/libreoffice_calc/0326d92d-d218-48a8-9ca1-981cd6d064c7/step_50_20251030@154610971876.png"
+    }
+  ]
+}
