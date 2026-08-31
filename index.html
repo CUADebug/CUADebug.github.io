@@ -12,7 +12,7 @@
     <meta property="og:image" content="./assets/paper/why-cua-failures-are-hard.png" />
     <title>CUADebug — Diagnosing and Repairing Computer-Use Agent Failures</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./css/styles.css?v=20260828-4" />
+    <link rel="stylesheet" href="./css/styles.css?v=20260831-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -29,13 +29,14 @@
           {"@type":"Person","name":"Jiateng Liu"},
           {"@type":"Person","name":"Jiaxun Zhang"},
           {"@type":"Person","name":"Bingxuan Li"},
+          {"@type":"Person","name":"Pan Lu"},
           {"@type":"Person","name":"Xiangru Tang"},
           {"@type":"Person","name":"Heng Ji"},
           {"@type":"Person","name":"Jiaxuan You"}
         ]
       }
     </script>
-    <script src="./js/app.js?v=20260828-4" defer></script>
+    <script src="./js/app.js?v=20260831-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -47,7 +48,7 @@
           <span>CUA<strong>Debug</strong></span>
         </a>
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#demo">Demo</a><a href="#method">Method</a><a href="#results">Results</a><a href="#taxonomy">Taxonomy</a><a href="#cases">Cases</a>
+          <a href="#demo">Demo</a><a href="#method">Method</a><a href="#results">Results</a><a href="#rerollout">Re-rollout</a><a href="#taxonomy">Taxonomy</a><a href="#cases">Cases</a>
         </nav>
         <div class="header-actions">
           <a href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer">Paper</a>
@@ -62,15 +63,17 @@
         <p class="venue-line">Project page <span>·</span> arXiv:2608.02643 <span>·</span> July 2026</p>
         <h1 id="paper-title">CUADebug: Diagnosing and Repairing <br />Computer-Use Agent Failures</h1>
         <p class="authors" aria-label="Paper authors">
-          <span>Weijia Zhang<sup>1</sup></span><span>Kunlun Zhu<sup>1</sup></span><span>Zeyi Liu<sup>1</sup></span>
+          <span>Weijia Zhang<sup>1§</sup></span><span>Kunlun Zhu<sup>1§</sup></span><span>Zeyi Liu<sup>1</sup></span>
           <span>Yinting Chen<sup>1</sup></span><span>Tianyi Ma<sup>1</sup></span><span>Jiateng Liu<sup>1</sup></span>
-          <span>Jiaxun Zhang<sup>1</sup></span><span>Bingxuan Li<sup>1</sup></span><span>Xiangru Tang<sup>2</sup></span>
+          <span>Jiaxun Zhang<sup>1</sup></span><span>Bingxuan Li<sup>1</sup></span><span>Pan Lu<sup>2</sup></span><span>Xiangru Tang<sup>3</sup></span>
           <span>Heng Ji<sup>1†</sup></span><span>Jiaxuan You<sup>1†</sup></span>
         </p>
         <p class="affiliations">
-          <span><sup>1</sup>University of Illinois Urbana-Champaign</span>
-          <span><sup>2</sup>Yale University</span>
-          <span><sup>†</sup>Corresponding authors</span>
+          <span><sup>1</sup>University of Illinois Urbana-Champaign, Urbana, IL, USA</span>
+          <span><sup>2</sup>Stanford University, Stanford, CA, USA</span>
+          <span><sup>3</sup>Yale University, New Haven, CT, USA</span>
+          <span><sup>§</sup>Leading authors</span>
+          <span><sup>†</sup>Co-senior authors</span>
         </p>
         <p class="hero-summary">
           CUADebug localizes the <strong>earliest causal error</strong> in a failed computer-use trajectory,
@@ -81,21 +84,21 @@
             <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon">P</span><span><strong>Paper</strong><small>arXiv PDF</small></span></a>
             <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span class="button-icon">&lt;/&gt;</span><span><strong>Code</strong><small>GitHub</small></span></a>
             <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon">HF</span><span><strong>Dataset</strong><small>204 failures</small></span></a>
-            <a class="paper-button" href="#demo"><span class="button-icon">▶</span><span><strong>Demo</strong><small>12 aligned trajectories</small></span></a>
+            <a class="paper-button" href="#demo"><span class="button-icon">▶</span><span><strong>Demo</strong><small>Selected aligned cases</small></span></a>
           </div>
           <dl class="headline-results" aria-label="Headline paper results">
             <div><dt>204</dt><dd>human-annotated failures</dd></div>
-            <div><dt>30</dt><dd>error subtypes</dd></div>
-            <div><dt>11.2 → 19.6%</dt><dd>joint subtype + step diagnosis</dd></div>
-            <div><dt>12.20 → 25.86%</dt><dd>continual task success</dd></div>
+            <div><dt>30</dt><dd>defined error subtypes · 22 observed</dd></div>
+            <div><dt>11.1 → 19.4%</dt><dd>joint subtype + step diagnosis</dd></div>
+            <div><dt>12.50 → 25.69%</dt><dd>continual failure recovery</dd></div>
           </dl>
         </div>
       </section>
 
       <section class="landing-pipeline section-shell" aria-label="CUADebug workflow overview">
         <figure class="paper-figure pipeline-figure">
-          <img src="./assets/paper/cuadebug-pipeline.png" alt="CUADebug pipeline using a real P1 case with stored debugger and human records: inspect the payment record and step-6 reasoning, localize the hallucinated recipient list, structure the RCA, retrieve optional memory, and define a repair test." />
-          <figcaption><strong>Pipeline.</strong> In this real P1 example, the debugger matches the stored Zeyi/Tianyi records on four RCA fields, and the final decision is Zeyi's same record. CUADebug localizes the step-6 reasoning error and emits grounded RCA; the illustrated single/localized re-rollout is a proposed test and has not been run for this case.</figcaption>
+          <img src="./assets/paper/cuadebug-pipeline.png" width="3213" height="1456" alt="Current CUADebugger pipeline: inspect a real P1 trajectory, localize the step-6 reasoning error, emit structured RCA, retrieve optional episodic memory, and guide continual re-rollout." />
+          <figcaption><strong>Pipeline.</strong> CUADebugger traces a real cross-application failure to the step-6 hallucination, records grounded evidence and a correction, and supplies that diagnosis to continual re-rollout. In the matched comparison, episodic memory adds 4.16 percentage points of recovery and 1.66 points of overall accuracy over machine RCA without memory.</figcaption>
         </figure>
       </section>
 
@@ -106,8 +109,8 @@
           <p>CUA errors can hide in a tiny perception cue, an interaction mechanic, a planning decision, or a system artifact many steps before the final symptom.</p>
         </div>
         <figure class="paper-figure teaser-figure">
-          <img src="./assets/paper/why-cua-failures-are-hard.png" alt="A real Calc-to-Thunderbird trajectory: the payment record lists Fox, Iron, Nancy, and Stella as unpaid, but the agent invents Kelly, omits Fox, and enters the wrong reminder recipients." />
-          <figcaption>A real cross-application P1 failure. At step 6 the agent invents Kelly and omits Fox while reading the payment record; that false belief later becomes the wrong Thunderbird recipient list. The debugger and the stored Zeyi/Tianyi records match on root step, subtype, evidence, and correction; the final decision is Zeyi's same record, so this is recorded rather than blinded agreement.</figcaption>
+          <img src="./assets/paper/why-cua-failures-are-hard.png" width="3213" height="1799" alt="A real Calc-to-Thunderbird trajectory: the payment record lists Fox, Iron, Nancy, and Stella as unpaid, but the agent invents Kelly, omits Fox, and enters the wrong reminder recipients." />
+          <figcaption>A real cross-application P1 failure. At step 6 the agent invents Kelly and omits Fox while reading the payment record; that false belief later becomes the wrong Thunderbird recipient list. The final screen confirms the task failed, but only the trajectory reveals where the wrong entity set originated.</figcaption>
         </figure>
       </section>
 
@@ -115,12 +118,12 @@
         <div class="section-shell wide-shell">
           <div class="section-intro split-intro">
             <div><p class="section-kicker">Interactive CUADebugger</p><h2 id="demo-title">Inspect the diagnosed failure path.</h2></div>
-            <p>Twelve public trajectories—three from each P/G/R/S family—were selected because the checked-in debugger RCA exactly matches the public human annotation on root step, subtype, evidence, and correction.</p>
+            <p>Selected checked-in trajectories span every P/G/R/S failure family. Each debugger RCA exactly matches its stored human reference on root step, subtype, evidence, and correction.</p>
           </div>
 
           <div class="viewer" id="viewer-app" role="region" aria-labelledby="case-title" aria-busy="true" tabindex="-1">
             <aside class="case-rail" aria-label="Representative trajectory cases">
-              <div class="rail-heading"><span>Case library</span><strong>12 cases · 10 subtypes</strong></div>
+              <div class="rail-heading"><span>Case library</span><strong>Selected · 10 subtypes</strong></div>
               <div class="case-filters rail-filters" id="rail-case-filters" role="group" aria-label="Filter trajectory cases by family">
                 <button type="button" data-case-filter="ALL" aria-pressed="true">All <span>12</span></button>
                 <button type="button" data-case-filter="P" aria-pressed="false">P <span>3</span></button>
@@ -183,10 +186,10 @@
                   <p id="debugger-evidence">--</p>
                 </div>
                 <div class="diagnosis-copy">
-                  <span>Public human evidence</span><p id="human-evidence">--</p>
+                  <span>Human evidence</span><p id="human-evidence">--</p>
                   <span>Correction</span><p id="human-correction">--</p>
                 </div>
-                <p class="demo-boundary">The public human annotation and machine RCA are checked in and precomputed; every selected case passes an exact four-field match check. This page does not run a model or an OSWorld VM.</p>
+                <p class="demo-boundary">The human reference and machine RCA are checked in and precomputed; every selected case passes an exact four-field match check. This page does not run a model or an OSWorld VM.</p>
               </section>
               <section class="step-evidence-card" aria-labelledby="inspector-title">
                 <div class="inspector-top"><span class="status-badge review" id="step-status">Review</span><span class="action-kind" id="action-kind">--</span></div>
@@ -227,39 +230,91 @@
         <div class="section-shell">
           <div class="section-intro split-intro">
             <div><p class="section-kicker">Paper-reported results</p><h2 id="results-title">Better diagnosis becomes better recovery.</h2></div>
-            <p>Numbers below are reported in arXiv v1. They are not presented as fresh reproductions from this static website.</p>
+            <p>Numbers below are transcribed from Tables 2–4 of the current manuscript. They are paper-reported results, not fresh reproductions from this static website.</p>
           </div>
           <div class="result-grid">
             <article class="result-card featured">
-              <p>Main RCA · Claude-agent split, N=144</p><h3><span>11.2%</span><i>→</i><strong>19.6%</strong></h3><h4>Joint subtype + exact-step diagnosis</h4>
-              <div class="comparison-bars" aria-label="Joint diagnosis improved from 11.2 percent to 19.6 percent"><span><i style="--value: 11.2%"></i><b>Naive 11.2</b></span><span><i style="--value: 19.6%"></i><b>CUADebug 19.6</b></span></div>
-              <p class="result-note">Gemini 2.5 Pro debugger. L2 subtype: 30.1→37.1; step exact: 21.0→29.4.</p>
+              <p>Main RCA · Claude-agent split, N=144</p><h3><span>11.1%</span><i>→</i><strong>19.4%</strong></h3><h4>Joint subtype + exact-step diagnosis</h4>
+              <div class="comparison-bars" aria-label="Joint diagnosis improved from 11.1 percent to 19.4 percent"><span><i style="--value: 11.1%"></i><b>Naive 11.1</b></span><span><i style="--value: 19.4%"></i><b>CUADebug 19.4</b></span></div>
+              <p class="result-note">Gemini 2.5 Pro debugger. L2 subtype: 29.9→36.8; step exact: 20.8→29.2.</p>
             </article>
             <article class="result-card">
-              <p>Continual re-rollout</p><h3><span>12.20%</span><i>→</i><strong>25.86%</strong></h3><h4>End-to-end task success</h4>
-              <div class="progress-scale" aria-label="Continual task success 25.86 percent, human oracle 29.21 percent"><i style="--value:88.5%"></i><b>Human oracle 29.21%</b></div>
-              <p class="result-note">The full method approaches the 29.21% human-oracle condition.</p>
+              <p>Continual re-rollout</p><h3><span>12.50%</span><i>→</i><strong>25.69%</strong></h3><h4>Failure recovery</h4>
+              <div class="progress-scale" aria-label="Continual failure recovery 25.69 percent, human oracle 29.17 percent"><i style="--value:88.1%"></i><b>Human oracle 29.17%</b></div>
+              <p class="result-note">Overall accuracy rises from 61.22% to 66.48%; the human-oracle condition reaches 67.87% overall.</p>
             </article>
             <article class="result-card">
-              <p>Single re-execution package</p><h3><span>13.89%</span><i>→</i><strong>29.90%</strong></h3><h4>Task accuracy</h4>
-              <div class="progress-scale warm" aria-label="Single re-execution task accuracy 29.90 percent"><i style="--value:53.6%"></i><b>Machine RCA 28.47%</b></div>
+              <p>Single re-execution package</p><h3><span>13.89%</span><i>→</i><strong>29.86%</strong></h3><h4>Failure recovery</h4>
+              <div class="progress-scale warm" aria-label="Single re-execution failure recovery 29.86 percent"><i style="--value:93.5%"></i><b>Human oracle 31.94%</b></div>
               <p class="result-note">Protocol caveat: restart-step sources and prompts differ; this is a package comparison, not a clean RCA-source ablation.</p>
             </article>
           </div>
+          <section class="rerollout-block" id="rerollout" aria-labelledby="rerollout-title">
+            <div class="rerollout-heading">
+              <div><p class="section-kicker">Re-execution protocols</p><h3 id="rerollout-title">What each re-rollout condition changes.</h3></div>
+              <p>Five guidance packages are compared under single and continual re-execution. Recovery is measured on the failed Claude 4.5 Sonnet trajectories; Overall Acc adds recovered failures to 203 initial successes over 361 tasks.</p>
+            </div>
+            <div class="protocol-grid">
+              <article>
+                <span>Single re-rollout</span>
+                <h4>Restart near the diagnosed cause.</h4>
+                <p>The agent restarts one step before the root-cause step. Machine RCA uses its predicted restart step; the other conditions use the human-labeled step.</p>
+              </article>
+              <article>
+                <span>Continual re-rollout</span>
+                <h4>Continue after the 50-step failure.</h4>
+                <p>Claude 4.5 Sonnet resumes from step 51. The comparison includes history-only continuation, self-debugging, machine RCA, CUADebug, and human-annotation guidance.</p>
+              </article>
+            </div>
+            <div class="rollout-table-card">
+              <div class="rollout-table-heading">
+                <div><span>Tables 3–4</span><strong>Re-rollout method comparison</strong></div>
+                <p>All accuracy values are percentages.</p>
+              </div>
+              <div class="table-scroll">
+                <table class="rollout-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" rowspan="2">Method</th>
+                      <th scope="col" rowspan="2">Guidance source</th>
+                      <th scope="colgroup" colspan="3" class="protocol-group">Single re-rollout</th>
+                      <th scope="colgroup" colspan="3" class="protocol-group">Continual re-rollout</th>
+                    </tr>
+                    <tr class="metric-row">
+                      <th scope="col">Recovery</th>
+                      <th scope="col">Overall</th>
+                      <th scope="col">New + Fixed</th>
+                      <th scope="col">Recovery</th>
+                      <th scope="col">Overall</th>
+                      <th scope="col">New + Fixed</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><th scope="row">Baseline</th><td>History only / direct continuation</td><td>13.89</td><td>61.77</td><td>20 + 11</td><td>12.50</td><td>61.22</td><td>18 + 15</td></tr>
+                    <tr><th scope="row">Self-debug</th><td>Acting model's own diagnosis</td><td>15.28</td><td>62.33</td><td>22 + 14</td><td>13.89</td><td>61.77</td><td>20 + 12</td></tr>
+                    <tr><th scope="row">Machine RCA</th><td>Machine diagnosis without memory</td><td>28.47</td><td>67.59</td><td>40 + 25</td><td>21.53</td><td>64.82</td><td>31 + 19</td></tr>
+                    <tr class="ours-row"><th scope="row">CUADebug <span>Ours</span></th><td>Structured RCA + episodic memory</td><td><strong>29.86</strong></td><td><strong>68.14</strong></td><td><strong>43 + 24</strong></td><td><strong>25.69</strong></td><td><strong>66.48</strong></td><td><strong>37 + 23</strong></td></tr>
+                    <tr class="oracle-row"><th scope="row">Human oracle <span>Reference</span></th><td>Human root-cause annotation</td><td>31.94</td><td>68.98</td><td>46 + 29</td><td>29.17</td><td>67.87</td><td>42 + 25</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="rollout-table-note"><strong>How to read New + Fixed.</strong> The manuscript defines the first number as cases where the original critical error was fixed but a new critical error appeared, and the second as cases fixed without a new critical error. These counts are transcribed verbatim rather than independently recomputed by this static page. Because restart sources and prompt formats differ, the single protocol compares complete re-execution packages rather than isolating diagnosis quality.</p>
+            </div>
+          </section>
           <div class="result-figures">
-            <figure class="paper-figure"><img src="./assets/paper/failure-distribution.png" alt="Distribution of 204 human annotations across five failure families and three trajectory sources." /><figcaption><strong>CUAErrorBench composition.</strong> Reasoning/control accounts for 110 of 204 failures, while perception, grounding, system, and infeasible-task failures remain substantial.</figcaption></figure>
-            <figure class="paper-figure"><img src="./assets/paper/category-rca-f1.png" alt="Category-level root-cause analysis F1 for Claude 4.5 Sonnet trajectories diagnosed by Gemini 2.5 Pro." /><figcaption><strong>Category-level RCA F1.</strong> Performance varies sharply by family, motivating grounded step-level inspection rather than one aggregate score.</figcaption></figure>
+            <figure class="paper-figure"><img src="./assets/paper/failure-distribution.png" width="1808" height="952" alt="Distribution of 204 human annotations across five failure families and three trajectory sources." /><figcaption><strong>CUAErrorBench composition.</strong> Reasoning/control accounts for 110 of 204 failures, while perception, grounding/interaction, external/system, and Others cases remain substantial.</figcaption></figure>
+            <figure class="paper-figure"><img src="./assets/paper/category-rca-f1.png" width="1808" height="1152" alt="Category-level root-cause analysis F1 for Claude 4.5 Sonnet trajectories diagnosed by Gemini 2.5 Pro." /><figcaption><strong>Category-level RCA F1.</strong> Performance varies sharply by family, motivating grounded step-level inspection rather than one aggregate score.</figcaption></figure>
           </div>
         </div>
       </section>
 
       <section class="taxonomy-section section-shell" id="taxonomy" aria-labelledby="taxonomy-title">
         <div class="section-intro split-intro">
-          <div><p class="section-kicker">CUA error taxonomy</p><h2 id="taxonomy-title">Five families. Thirty error subtypes.</h2></div>
+          <div><p class="section-kicker">CUA error taxonomy</p><h2 id="taxonomy-title">Five families. Thirty defined subtypes.</h2></div>
           <p>The paper taxonomy separates what the agent perceived, where it acted, how it reasoned, what the system did, and whether the task was feasible.</p>
         </div>
         <div class="coverage-band" aria-label="Trajectory example coverage">
-          <div><span>Trajectory coverage</span><strong><b id="coverage-present">10</b> / 30</strong><p>canonical subtypes are represented by 12 family-balanced, human–debugger aligned trajectories</p></div>
+          <div><span>Trajectory coverage</span><strong><b id="coverage-present">10</b> / 30</strong><p>canonical subtypes are represented by selected human–debugger aligned trajectories spanning P/G/R/S</p></div>
           <div class="coverage-meter" role="progressbar" aria-label="Canonical subtypes with a selected trajectory" aria-valuemin="0" aria-valuemax="30" aria-valuenow="10"><i style="--coverage: 33.333%"></i></div>
           <div class="coverage-legend"><span><i class="available"></i>Case available</span><span><i class="definition-only"></i>Definition only</span></div>
         </div>
@@ -285,17 +340,17 @@
             <ul><li data-tag="O1"><b>O1</b> Infeasible-task</li></ul>
           </details>
         </div>
-        <p class="taxonomy-note"><strong>Version note.</strong> This page follows the arXiv v1 canonical 30-error taxonomy. The current implementation schema splits infeasibility into IF1/IF2; IF1 is correct recognition, not an error subtype.</p>
+        <p class="taxonomy-note"><strong>Coverage note.</strong> This page follows the current manuscript's canonical 30-subtype taxonomy. The benchmark represents 22 subtypes; G2, G4, R6, R12, R13, S1, S2, and S5 remain definition-only in the current data.</p>
       </section>
 
       <section class="cases-section" id="cases" aria-labelledby="cases-title">
         <div class="section-shell">
           <div class="section-intro split-intro">
-            <div><p class="section-kicker">Aligned trajectory examples</p><h2 id="cases-title">Twelve real cases with exact human–debugger agreement.</h2></div>
-            <p>Each card opens a complete checked-in trajectory. Every displayed machine RCA matches its public human annotation on all four structured diagnosis fields.</p>
+            <div><p class="section-kicker">Aligned trajectory examples</p><h2 id="cases-title">Selected real cases with exact human–debugger agreement.</h2></div>
+            <p>Every P/G/R/S family is represented. Each card opens a complete checked-in trajectory whose machine RCA matches its stored human reference on all four structured diagnosis fields.</p>
           </div>
           <div class="case-gallery-toolbar">
-            <p id="case-gallery-count" aria-live="polite">Showing 12 aligned trajectories</p>
+            <p id="case-gallery-count" aria-live="polite">Selected aligned trajectories across P/G/R/S</p>
             <div class="case-filters gallery-filters" role="group" aria-label="Filter gallery by family">
               <button type="button" data-case-filter="ALL" aria-pressed="true">All <span>12</span></button>
               <button type="button" data-case-filter="P" aria-pressed="false">P <span>3</span></button>
@@ -306,28 +361,7 @@
             </div>
           </div>
           <div class="case-gallery" id="case-gallery"></div>
-          <p class="coverage-note"><strong>Coverage boundary:</strong> these 12 selected trajectories cover 10 canonical subtypes; two G1 and two S7 cases are intentionally retained. The complete 30-subtype taxonomy remains visible for context. Viewer selection is not benchmark accuracy.</p>
-        </div>
-      </section>
-
-      <section class="dataset-section" id="dataset" aria-labelledby="dataset-title">
-        <div class="section-shell dataset-layout">
-          <div>
-            <p class="section-kicker">Open trajectory data</p><h2 id="dataset-title">Every action. Every screenshot. Every failed outcome.</h2>
-            <p>The public Hugging Face snapshot contains three trajectory archives with per-step screenshots and root-cause annotations used by this viewer.</p>
-            <div class="dataset-links">
-              <a class="paper-button primary compact" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon">HF</span><span><strong>Browse dataset</strong><small>Apache-2.0</small></span></a>
-              <a class="text-link" href="https://osworld-v1.xlang.ai/" target="_blank" rel="noreferrer">Visit OSWorld ↗</a>
-            </div>
-          </div>
-          <div class="dataset-ledger" aria-label="Public dataset snapshot inventory">
-            <div class="ledger-row heading"><span>Trajectory source</span><span>Runs</span><span>Steps</span></div>
-            <div class="ledger-row"><strong>Claude Sonnet 4.5</strong><span>144</span><span>5,234</span></div>
-            <div class="ledger-row"><strong>Gemini 2.5 Pro</strong><span>30</span><span>622</span></div>
-            <div class="ledger-row"><strong>Qwen 3.5</strong><span>30</span><span>1,167</span></div>
-            <div class="ledger-row total"><strong>Total</strong><span>204</span><span>7,023</span></div>
-            <p>Snapshot revision <code>40dab5eb9f5b</code> · 201 recordings in the HF inventory.</p>
-          </div>
+          <p class="coverage-note"><strong>Coverage boundary:</strong> the selected gallery covers 10 canonical subtypes and represents every P/G/R/S family; repeated G1 and S7 cases are intentionally retained. The complete 30-subtype taxonomy remains visible for context. The paper benchmark currently supports 22 of the 30 defined subtypes; viewer selection is not benchmark accuracy.</p>
         </div>
       </section>
 
