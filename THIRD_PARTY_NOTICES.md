@@ -1,31 +1,31 @@
 # Third-party notices
 
-This static CUADebug preview vendors selected public evidence so that the project page does not download multi-gigabyte archives at runtime.
+This static CUADebug preview vendors selected trajectory evidence so that the project page does not download multi-gigabyte archives at runtime.
 
 ## CUA Debugger Trajectories
 
 - Source: <https://huggingface.co/datasets/CyT1ng/cua_debugger_traj>
-- Pinned dataset revision: `40dab5eb9f5b98699f9df7c95dbd97ba69f5aad8`
-- Source archive: `claude_4.5_sonnet_traj_144.zip`
-- Source split: Claude Sonnet 4.5, 50-step configuration
-- Viewer-selected tasks (the split and UUID together identify the source trajectory):
+- Public-dataset revision: `40dab5eb9f5b98699f9df7c95dbd97ba69f5aad8`
+- Public source archives: `claude_4.5_sonnet_traj_144.zip` and `gemini_2.5_pro_traj_30.zip`
+- Archived snapshot: one checked-in Claude Sonnet 4.5 15-step trajectory and its Zeyi annotation
+- Viewer-selected tasks (the manifest records the split/archive for each UUID):
 
 | Family | Paper tag | Task UUID |
 |---|---|---|
 | P | P2 | `04d9aeaf-7bed-4024-bedb-e10e6f00eb7f` |
 | P | P5 | `05dd4c1d-c489-4c85-8389-a7836c4f0567` |
 | P | P4 | `1f18aa87-af6f-41ef-9853-cdb8f32ebdea` |
-| G | G1 | `99146c54-4f37-4ab8-9327-5f3291665e1e` |
-| G | G3 | `236833a3-5704-47fc-888c-4f298f09f799` |
+| G | G1 | `04578141-1d42-4146-b9cf-6fab4ce5fd74` |
+| G | G3 | `09a37c51-e625-49f4-a514-20a773797a8a` |
 | G | G1 | `0a211154-fda0-48d0-9274-eaac4ce5486d` |
 | R | R8 | `0326d92d-d218-48a8-9ca1-981cd6d064c7` |
 | R | R10 | `0512bb38-d531-4acf-9e7e-0add90816068` |
-| R | R4 | `337d318b-aa07-4f4f-b763-89d9a2dd013f` |
+| R | R3 | `185f29bd-5da0-40a6-b69c-ba7f4e0324ef` |
 | S | S3 | `7f52cab9-535c-4835-ac8c-391ee64dc930` |
 | S | S7 | `bedcedc4-4d72-425e-ad62-21960b11fe0d` |
 | S | S7 | `c1fa57f3-c3db-4596-8f09-020701085416` |
 
-For each selected task, the website uses the public trajectory JSONL, per-step screenshots, evaluator result, and public `human_annotation.json` from the pinned archive. The corresponding precomputed machine RCA comes from this repository's debugger results. Selection was fail-closed: all 12 cases match the public human annotation exactly on `root_error_step`, `taxonomy_tag`, `evidence`, and `correction`.
+For each selected task, the website vendors a trajectory JSONL, per-step screenshots, evaluator result, a checked-in human reference, and the corresponding precomputed machine RCA. The `human_reference_source` field in `data/cases.json` distinguishes a public Hugging Face record from an archived annotation snapshot. Selection is fail-closed: all 12 cases match their stored human reference exactly on `root_error_step`, `taxonomy_tag`, `evidence`, and `correction`. Because one task UUID can occur in more than one trajectory split, `source_split`, `source_archive`, and `data_dir` jointly identify the displayed run.
 
 The selected cases represent 10 of the canonical paper's 30 subtypes; the repeated G1 and S7 examples are intentional so that the viewer contains three aligned cases from each P/G/R/S family. This curated website selection is not a claim about the full dataset's subtype availability or debugger accuracy. No missing trajectory, annotation, or RCA is synthesized.
 

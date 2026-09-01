@@ -343,8 +343,9 @@ function renderCaseGallery() {
 
   elements.caseGallery.append(fragment);
   if (elements.caseGalleryCount) {
-    const familyLabel = state.caseFilter === "ALL" ? "" : ` in family ${state.caseFilter}`;
-    elements.caseGalleryCount.textContent = `Showing ${visibleCases.length} aligned ${visibleCases.length === 1 ? "trajectory" : "trajectories"}${familyLabel}`;
+    elements.caseGalleryCount.textContent = state.caseFilter === "ALL"
+      ? "Selected aligned trajectories across P/G/R/S"
+      : `Showing ${visibleCases.length} aligned ${visibleCases.length === 1 ? "trajectory" : "trajectories"} in family ${state.caseFilter}`;
   }
 }
 
@@ -628,7 +629,7 @@ function populateDiagnosis() {
         : "Debugger incorrect";
   elements.agreementDetail.textContent = !machineAvailable
     ? "No checked-in machine RCA for this trajectory."
-    : exactMatch ? "Root step, subtype, evidence, and correction exactly match the public human annotation."
+    : exactMatch ? "Root step, subtype, evidence, and correction exactly match the checked-in human reference."
       : coreMatch ? "Root step and subtype match; written evidence or correction differs."
         : `Human: step ${human.root_error_step}, ${humanTag}. Debugger: step ${machine.root_error_step ?? "—"}, ${machineTag}.`;
 }
@@ -692,7 +693,7 @@ async function loadCase(identifier, options = {}) {
         && machineTag === humanTag
         && normalizeForMatch(debuggerResult.evidence) === normalizeForMatch(humanDecision.evidence)
         && normalizeForMatch(debuggerResult.correction) === normalizeForMatch(humanDecision.correction);
-      if (!exactMatch) throw new Error("The selected debugger RCA does not exactly match the public human annotation.");
+      if (!exactMatch) throw new Error("The selected debugger RCA does not exactly match the checked-in human reference.");
     }
     if (caseData.machine_rca_model && debuggerResult?.model !== caseData.machine_rca_model) {
       throw new Error(`Manifest debugger model ${caseData.machine_rca_model} disagrees with the checked-in RCA model ${debuggerResult?.model || "unknown"}.`);
