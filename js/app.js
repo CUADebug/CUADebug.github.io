@@ -31,7 +31,7 @@ const taxonomyLabels = {
   S5: "S5 · Tool / API failure",
   S6: "S6 · Environment instability",
   S7: "S7 · Benchmark / evaluation artifact",
-  O1: "O1 · Infeasible-task",
+  O1: "O1 · Infeasible task",
 };
 
 const state = {
@@ -57,9 +57,6 @@ const elements = {
   caseGalleryCount: document.querySelector("#case-gallery-count"),
   caseFilterButtons: [...document.querySelectorAll("[data-case-filter]")],
   taxonomyItems: [...document.querySelectorAll(".taxonomy-card li[data-tag]")],
-  coveragePresent: document.querySelector("#coverage-present"),
-  coverageMeterContainer: document.querySelector(".coverage-meter"),
-  coverageMeter: document.querySelector(".coverage-meter i"),
   appBadge: document.querySelector("#app-badge"),
   applicationLabel: document.querySelector("#application-label"),
   caseIdShort: document.querySelector("#case-id-short"),
@@ -345,7 +342,7 @@ function renderCaseGallery() {
   if (elements.caseGalleryCount) {
     elements.caseGalleryCount.textContent = state.caseFilter === "ALL"
       ? "Selected aligned trajectories across P/G/R/S"
-      : `Showing ${visibleCases.length} aligned ${visibleCases.length === 1 ? "trajectory" : "trajectories"} in family ${state.caseFilter}`;
+      : `Selected aligned trajectories · ${state.caseFilter} family`;
   }
 }
 
@@ -370,11 +367,6 @@ function renderTaxonomyCoverage() {
     casesForTag.push(caseData);
     casesByTag.set(caseData.taxonomy_tag, casesForTag);
   });
-  const presentTags = new Set(casesByTag.keys());
-  if (elements.coveragePresent) elements.coveragePresent.textContent = String(presentTags.size);
-  if (elements.coverageMeter) elements.coverageMeter.style.setProperty("--coverage", `${(presentTags.size / elements.taxonomyItems.length) * 100}%`);
-  if (elements.coverageMeterContainer) elements.coverageMeterContainer.setAttribute("aria-valuenow", String(presentTags.size));
-
   elements.caseFilterButtons.forEach((button) => {
     const filter = button.dataset.caseFilter;
     const count = filter === "ALL" ? state.cases.length : state.cases.filter((item) => item.category === filter).length;
@@ -391,7 +383,6 @@ function renderTaxonomyCoverage() {
     item.dataset.available = String(Boolean(caseData));
     item.dataset.sampleCount = String(caseData?.benchmark_count || (caseData ? 1 : 0));
     item.classList.toggle("has-case", Boolean(caseData));
-    item.classList.toggle("no-case", !caseData);
     item.querySelector(".taxonomy-case-actions, .taxonomy-case-action")?.remove();
 
     if (caseData) {
@@ -412,19 +403,7 @@ function renderTaxonomyCoverage() {
         actions.append(button);
       });
       item.append(actions);
-    } else {
-      const status = document.createElement("span");
-      status.className = "taxonomy-case-action";
-      status.textContent = "No selected aligned example in this release";
-      item.append(status);
     }
-  });
-
-  document.querySelectorAll("[data-family-coverage]").forEach((label) => {
-    const family = label.dataset.familyCoverage;
-    const total = elements.taxonomyItems.filter((item) => item.dataset.tag.startsWith(family)).length;
-    const available = [...presentTags].filter((tag) => tag.startsWith(family)).length;
-    label.textContent = `${available} / ${total} examples`;
   });
 }
 
@@ -793,12 +772,11 @@ async function initialize() {
     const manifest = await fetchChecked("./data/cases.json");
     state.cases = Array.isArray(manifest) ? manifest : manifest.cases;
     if (!Array.isArray(state.cases) || !state.cases.length) throw new Error("The case manifest is empty or invalid.");
-    if (state.cases.length !== 12) throw new Error(`This release requires 12 selected cases, but the manifest contains ${state.cases.length}.`);
     if (new Set(state.cases.map(caseKey)).size !== state.cases.length) throw new Error("The case manifest contains duplicate case keys.");
     if (state.cases.some((item) => !taxonomyLabels[item.taxonomy_tag])) throw new Error("The case manifest contains a subtype outside the canonical taxonomy.");
     if (state.cases.some((item) => !item.case_key || !item.data_dir || !item.case_id || !item.source_split)) throw new Error("The case manifest is missing collision-safe source metadata.");
-    const familyCounts = Object.fromEntries(["P", "G", "R", "S"].map((family) => [family, state.cases.filter((item) => item.category === family).length]));
-    if (Object.values(familyCounts).some((count) => count !== 3)) throw new Error("This release requires three selected trajectories in each P/G/R/S family.");
+    const representedFamilies = new Set(state.cases.map((item) => item.category));
+    if (["P", "G", "R", "S"].some((family) => !representedFamilies.has(family))) throw new Error("Selected cases must represent every P/G/R/S family.");
     renderCaseNavigation();
     renderCaseGallery();
     renderTaxonomyCoverage();
