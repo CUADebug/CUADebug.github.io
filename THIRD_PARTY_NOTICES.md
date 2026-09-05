@@ -1,5 +1,9 @@
 # Third-party notices
 
+## Inter typeface
+
+Inter by The Inter Project Authors is bundled locally under the SIL Open Font License 1.1. Source: <https://github.com/rsms/inter>. The license is included in [`assets/fonts/OFL.txt`](./assets/fonts/OFL.txt).
+
 This static CUADebug preview vendors selected trajectory evidence so that the project page does not download multi-gigabyte archives at runtime.
 
 ## CUA Debugger Trajectories
