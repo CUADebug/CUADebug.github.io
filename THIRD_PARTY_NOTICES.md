@@ -45,6 +45,10 @@ Recordings, runtime logs, large message dumps, and unrelated task files are not 
 
 The interaction idea of selecting a task and inspecting linked static trajectory data is informed by the OSWorld Data Explorer. The CUADebug page structure, components, and visual styling are original.
 
+## Newsreader font
+
+Newsreader is self-hosted under the SIL Open Font License 1.1. Source: [Google Fonts](https://github.com/google/fonts/tree/main/ofl/newsreader). The license is included at [assets/fonts/Newsreader-OFL.txt](./assets/fonts/Newsreader-OFL.txt).
+
 ## Trademarks and application UI
 
 GIMP, GNU, Ubuntu, Visual Studio Code, LibreOffice, and other third-party names or interface elements visible in trajectory screenshots or paper figures belong to their respective owners. Their appearance identifies the recorded task environment and does not imply endorsement.
