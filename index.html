@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="./css/styles.css?v=20260905-2" />
     <link rel="stylesheet" href="./css/presentation.css?v=20260905-3" />
     <link rel="stylesheet" href="./css/editorial.css?v=20260905-3" />
+    <link rel="stylesheet" href="./css/landing-scene.css?v=20260905-6" />
+    <link rel="stylesheet" href="./css/research-figures.css?v=20260905-6" />
+    <link rel="stylesheet" href="./css/explorer-theme.css?v=20260905-6" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -41,6 +44,7 @@
     </script>
     <script src="./js/app.js?v=20260905-1" defer></script>
     <script src="./js/presentation.js?v=20260905-2" defer></script>
+    <script src="./js/hero-scene.js?v=20260905-6" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -74,40 +78,61 @@
     </header>
 
     <main id="main">
-      <section class="paper-hero section-shell" id="top" aria-labelledby="paper-title">
-        <div class="hero-edition"><p class="venue-line">EMNLP 2026</p><span>Computer-use agents / Research</span></div>
-        <div class="hero-layout">
+      <section class="paper-hero" id="top" aria-labelledby="paper-title">
+        <div class="landing-scene" id="landing-scene" data-phase="localize">
+          <div class="scene-atmosphere" aria-hidden="true">
+            <span class="scene-fog fog-one"></span><span class="scene-fog fog-two"></span><span class="scene-fog fog-three"></span>
+            <svg class="scene-art scene-art-left" viewBox="0 0 380 580"><defs><linearGradient id="paper-wash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7f3e6"/><stop offset="1" stop-color="#e5c4ac" stop-opacity=".15"/></linearGradient></defs><g class="scene-artwork"><path d="M-60 120 213 34 306 470 40 556Z" fill="url(#paper-wash)"/><path d="M-20 163 224 87 297 444 69 517Z" fill="none" stroke="#f7f5e8" stroke-width="2"/><path class="scene-trace" d="M101 38C106 132 249 122 239 225S131 337 197 421 272 467 284 565" fill="none" stroke="#9b7b60" stroke-width="1.2"/><g fill="#e7dfcc" stroke="#8e725d" stroke-width="1.2"><circle cx="159" cy="128" r="5"/><circle cx="235" cy="251" r="5"/><circle cx="201" cy="426" r="5"/></g><path d="M201 407v38m-19-19h38" fill="none" stroke="#a8674d" stroke-width="1"/></g></svg>
+            <svg class="scene-art scene-art-right" viewBox="0 0 430 580"><g class="scene-artwork"><path d="m171 10 313 55-54 398-311-52Z" fill="#eff3ed" fill-opacity=".6"/><path d="m136 61 282 40-49 359-282-39Z" fill="none" stroke="#6d8f94" stroke-width="1.3"/><path d="m174 101 198 29m-202 8 144 20m-154 31 171 25" stroke="#8da1a0" stroke-width="1"/><path d="m117 287 122 18-18 132-122-18Z" fill="#e1b299" fill-opacity=".24"/><path d="m101 279 27 4m-27-4-4 28m146-8 26 4-4 27m-49 115 30 4 4-28m-153-3-4 29 28 4" fill="none" stroke="#a06c53" stroke-width="1.5"/><path d="m240 453 0 55 16-16 14 26 9-5-14-27h29Z" fill="#f5f4e9" stroke="#739097" stroke-width="1.3"/></g></svg>
+          </div>
           <div class="hero-copy">
-            <h1 id="paper-title"><span class="title-brand">CUADebug:</span> <span>Diagnosing and Repairing</span> <span>Computer-Use</span> <span>Agent Failures</span></h1>
+            <p class="venue-line">EMNLP 2026</p>
+            <h1 id="paper-title"><span class="title-brand">CUADebug:</span> <span>Diagnosing and Repairing</span> <span>Computer-Use Agent Failures</span></h1>
+            <div class="research-credits">
+              <p class="authors" aria-label="Paper authors">
+                <span>Weijia Zhang<sup>1§</sup></span> <span>Kunlun Zhu<sup>1§</sup></span> <span>Zeyi Liu<sup>1</sup></span>
+                <span>Yinting Chen<sup>1</sup></span> <span>Tianyi Ma<sup>1</sup></span> <span>Jiateng Liu<sup>1</sup></span>
+                <span>Jiaxun Zhang<sup>1</sup></span> <span>Bingxuan Li<sup>1</sup></span> <span>Pan Lu<sup>2</sup></span> <span>Xiangru Tang<sup>3</sup></span>
+                <span>Heng Ji<sup>1†</sup></span> <span>Jiaxuan You<sup>1†</sup></span>
+              </p>
+              <p class="affiliations">
+                <span><sup>1</sup>University of Illinois Urbana-Champaign, Urbana, IL, USA</span>
+                <span><sup>2</sup>Stanford University, Stanford, CA, USA</span>
+                <span><sup>3</sup>Yale University, New Haven, CT, USA</span>
+                <span><sup>§</sup>Leading authors</span>
+                <span><sup>†</sup>Co-senior authors</span>
+              </p>
+            </div>
             <p class="hero-summary">CUADebug localizes the earliest causal error, grounds it in trajectory evidence, and guides re-execution.</p>
             <div class="paper-links" aria-label="Project links">
-              <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-paper"/></svg></span><span><strong>Paper</strong><small>arXiv</small></span></a>
-              <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span><strong>Code</strong><small>GitHub</small></span></a>
-              <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
-              <a class="paper-button" href="#demo"><span><strong>Explore demo</strong><small>Aligned cases</small></span></a>
+              <a class="paper-button" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-paper"/></svg></span><span><strong>Paper</strong><small>arXiv</small></span></a>
+              <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-code"/></svg></span><span><strong>Code</strong><small>GitHub</small></span></a>
+              <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-data"/></svg></span><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
+              <a class="paper-button" href="?case=04578141-1d42-4146-b9cf-6fab4ce5fd74&amp;step=12#demo"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-play"/></svg></span><span><strong>Demo</strong><small>Aligned cases</small></span></a>
             </div>
           </div>
-          <div class="hero-study">
-            <img src="./assets/design/trace-study.svg" width="700" height="600" alt="" aria-hidden="true" fetchpriority="high" />
-            <div class="study-caption" aria-hidden="true"><span>A trajectory, examined.</span><span>Trace → Root cause → Repair</span></div>
+          <div class="scene-deck">
+            <section class="scene-panel" data-scene-panel="inspect" aria-labelledby="inspect-scene-title" hidden>
+              <div class="scene-narrative"><p class="scene-eyebrow">01 / Inspect the failure</p><h2 id="inspect-scene-title">The colors changed.<br /> The text didn’t.</h2><p>The task asked for yellow, red, and green text. The agent changed the shape fills instead.</p><span class="scene-fact">Observed failure · Step 40</span></div>
+              <figure class="scene-window single-window"><div class="scene-window-bar"><span class="scene-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>LibreOffice Impress</span><small>Failed trajectory</small></div><button class="scene-screen-open" type="button" data-figure="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_40_20250725@010249.png" data-figure-title="Observed failure — Step 40" aria-label="Expand actual final state"><img src="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_40_20250725@010249.png" width="1920" height="1080" alt="Actual failed final state at step 40: the three textboxes have colored backgrounds while their text remains pale." /><span class="scene-zoom-hint" aria-hidden="true">View original ↗</span></button><figcaption>Actual final state — not a successful repair.</figcaption></figure>
+            </section>
+            <section class="scene-panel" data-scene-panel="localize" aria-labelledby="localize-scene-title">
+              <div class="scene-narrative"><p class="scene-eyebrow">02 / Localize the root cause</p><h2 id="localize-scene-title">One wrong control.<br /> A different outcome.</h2><p>At step 12, a click on <strong>Area</strong> opens shape-fill controls, not text-color controls.</p><span class="scene-fact">Human–debugger agreement · G1 · Step 12</span></div>
+              <div class="scene-evidence-pair">
+                <figure class="scene-window before-window"><div class="scene-window-bar"><span class="scene-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Before action</span><small>t = 11</small></div><button class="scene-screen-open scene-screen" type="button" data-figure="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_11_20250725@004941.png" data-figure-title="Before the root action — Step 11" aria-label="Expand actual before-action screenshot"><img src="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_11_20250725@004941.png" width="1920" height="1080" alt="Actual step 11 screenshot: the Format menu is open with Text Attributes and Area as separate menu options." /><span class="root-click" aria-hidden="true"></span><span class="scene-zoom-hint" aria-hidden="true">View original ↗</span></button><figcaption>Click on “Area” at (668, 455).</figcaption></figure>
+                <span class="scene-connector" aria-hidden="true">→</span>
+                <figure class="scene-window after-window"><div class="scene-window-bar"><span class="scene-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>After action</span><small>t = 12</small></div><button class="scene-screen-open" type="button" data-figure="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_12_20250725@005018.png" data-figure-title="After the root action — Step 12" aria-label="Expand actual after-action screenshot"><img src="./data/cases/04578141-1d42-4146-b9cf-6fab4ce5fd74/step_12_20250725@005018.png" width="1920" height="1080" alt="Actual step 12 screenshot: the Area dialog opens with Area, Shadow, and Transparency tabs." /><span class="scene-zoom-hint" aria-hidden="true">View original ↗</span></button><figcaption>The resulting dialog controls shape fills.</figcaption></figure>
+              </div>
+            </section>
+            <section class="scene-panel" data-scene-panel="repair" aria-labelledby="repair-scene-title" hidden>
+              <div class="scene-narrative"><p class="scene-eyebrow">03 / Guide the next action</p><h2 id="repair-scene-title">Change the text.<br /> Not the shape.</h2><p>Turn the grounded diagnosis into a concrete instruction for re-execution.</p><span class="scene-fact">Repair guidance · Human reference</span></div>
+              <div class="scene-recipe"><div class="recipe-label"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 18 3-8 5 5-8 3Zm3-8 8-8 5 5-8 8M14 4l5 5"/></svg><span>Suggested correction</span></div><h3>Use text-formatting controls.</h3><ol><li><span>01</span>Select the text inside the textbox.</li><li><span>02</span>Use Character or font-color controls.</li><li><span>03</span>Apply the requested text color; leave the fill unchanged.</li></ol><p>A correction to test — no successful re-rollout is shown here.</p></div>
+            </section>
           </div>
+          <div class="scene-bottom"><div class="scene-controls" role="group" aria-label="Explore the debugging process"><button type="button" data-scene-select="inspect" aria-pressed="false"><span>01</span>Inspect</button><button type="button" data-scene-select="localize" aria-pressed="true"><span>02</span>Localize</button><button type="button" data-scene-select="repair" aria-pressed="false"><span>03</span>Repair guidance</button></div><button id="scene-motion-toggle" class="scene-motion-toggle" type="button" aria-pressed="false"><span class="motion-glyph" aria-hidden="true">Ⅱ</span><span data-motion-label>Pause motion</span></button></div>
+          <p class="scene-provenance">A real CUAErrorBench trajectory <span>04578141 · LibreOffice Impress</span></p>
         </div>
-        <div class="research-credits">
-        <p class="authors" aria-label="Paper authors">
-          <span>Weijia Zhang<sup>1§</sup></span><span>Kunlun Zhu<sup>1§</sup></span><span>Zeyi Liu<sup>1</sup></span>
-          <span>Yinting Chen<sup>1</sup></span><span>Tianyi Ma<sup>1</sup></span><span>Jiateng Liu<sup>1</sup></span>
-          <span>Jiaxun Zhang<sup>1</sup></span><span>Bingxuan Li<sup>1</sup></span><span>Pan Lu<sup>2</sup></span><span>Xiangru Tang<sup>3</sup></span>
-          <span>Heng Ji<sup>1†</sup></span><span>Jiaxuan You<sup>1†</sup></span>
-        </p>
-        <p class="affiliations">
-          <span><sup>1</sup>University of Illinois Urbana-Champaign, Urbana, IL, USA</span>
-          <span><sup>2</sup>Stanford University, Stanford, CA, USA</span>
-          <span><sup>3</sup>Yale University, New Haven, CT, USA</span>
-          <span><sup>§</sup>Leading authors</span>
-          <span><sup>†</sup>Co-senior authors</span>
-        </p>
-        </div>
-        <nav class="chapter-index" aria-label="Research chapters"><span>In this research</span><a href="#method"><small>01</small> The method <span>↗</span></a><a href="#demo"><small>02</small> The evidence <span>↗</span></a><a href="#results"><small>03</small> The results <span>↗</span></a><a href="#taxonomy"><small>04</small> The taxonomy <span>↗</span></a></nav>
+        <nav class="chapter-index section-shell" aria-label="Research chapters"><span>In this research</span><a href="#method"><small>01</small> The method <span>↗</span></a><a href="#demo"><small>02</small> The evidence <span>↗</span></a><a href="#results"><small>03</small> The results <span>↗</span></a><a href="#taxonomy"><small>04</small> The taxonomy <span>↗</span></a></nav>
       </section>
 
       <section class="landing-pipeline section-shell" id="method" aria-label="CUADebug workflow overview">
