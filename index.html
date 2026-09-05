@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="CUADebug localizes root causes in computer-use agent trajectories and guides re-execution." />
     <meta name="application-name" content="CUADebug" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#f7f6f2" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="CUADebug: Diagnosing and Repairing Computer-Use Agent Failures" />
     <meta property="og:description" content="An interactive project page for root-cause diagnosis and debugger-guided repair of computer-use agents." />
@@ -13,8 +13,10 @@
     <title>CUADebug — Diagnosing and Repairing Computer-Use Agent Failures</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="./assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/Newsreader.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="./css/styles.css?v=20260905-2" />
-    <link rel="stylesheet" href="./css/presentation.css?v=20260905-2" />
+    <link rel="stylesheet" href="./css/presentation.css?v=20260905-3" />
+    <link rel="stylesheet" href="./css/editorial.css?v=20260905-3" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -73,8 +75,24 @@
 
     <main id="main">
       <section class="paper-hero section-shell" id="top" aria-labelledby="paper-title">
-        <p class="venue-line">EMNLP 2026</p>
-        <h1 id="paper-title"><span class="title-brand">CUADebug:</span> Diagnosing and Repairing <br />Computer-Use Agent Failures</h1>
+        <div class="hero-edition"><p class="venue-line">EMNLP 2026</p><span>Computer-use agents / Research</span></div>
+        <div class="hero-layout">
+          <div class="hero-copy">
+            <h1 id="paper-title"><span class="title-brand">CUADebug:</span> <span>Diagnosing and Repairing</span> <span>Computer-Use</span> <span>Agent Failures</span></h1>
+            <p class="hero-summary">CUADebug localizes the earliest causal error, grounds it in trajectory evidence, and guides re-execution.</p>
+            <div class="paper-links" aria-label="Project links">
+              <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-paper"/></svg></span><span><strong>Paper</strong><small>arXiv</small></span></a>
+              <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span><strong>Code</strong><small>GitHub</small></span></a>
+              <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
+              <a class="paper-button" href="#demo"><span><strong>Explore demo</strong><small>Aligned cases</small></span></a>
+            </div>
+          </div>
+          <div class="hero-study">
+            <img src="./assets/design/trace-study.svg" width="700" height="600" alt="" aria-hidden="true" fetchpriority="high" />
+            <div class="study-caption" aria-hidden="true"><span>A trajectory, examined.</span><span>Trace → Root cause → Repair</span></div>
+          </div>
+        </div>
+        <div class="research-credits">
         <p class="authors" aria-label="Paper authors">
           <span>Weijia Zhang<sup>1§</sup></span><span>Kunlun Zhu<sup>1§</sup></span><span>Zeyi Liu<sup>1</sup></span>
           <span>Yinting Chen<sup>1</sup></span><span>Tianyi Ma<sup>1</sup></span><span>Jiateng Liu<sup>1</sup></span>
@@ -88,22 +106,12 @@
           <span><sup>§</sup>Leading authors</span>
           <span><sup>†</sup>Co-senior authors</span>
         </p>
-        <p class="hero-summary">CUADebug localizes the earliest causal error, grounds it in trajectory evidence, and guides re-execution.</p>
-        <div class="paper-links" aria-label="Project links">
-          <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-paper"/></svg></span><span><strong>Paper</strong><small>arXiv</small></span></a>
-          <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-code"/></svg></span><span><strong>Code</strong><small>GitHub</small></span></a>
-          <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-data"/></svg></span><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
-          <a class="paper-button" href="#demo"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-play"/></svg></span><span><strong>Demo</strong><small>Aligned cases</small></span></a>
         </div>
-        <dl class="headline-results" aria-label="Headline paper results">
-          <div><dt>204</dt><dd>human-annotated failures</dd></div>
-          <div><dt><span class="metric-before">11.1</span> <span class="metric-arrow">→</span> <strong>19.4%</strong></dt><dd>Tag+Step Exact <span>Gemini 2.5 Pro debugger · Claude N=144</span></dd></div>
-          <div><dt><span class="metric-before">61.77</span> <span class="metric-arrow">→</span> <strong>68.14%</strong></dt><dd>single Overall Acc. <span>Recovery: 13.89 → 29.86%</span></dd></div>
-          <div><dt><span class="metric-before">61.22</span> <span class="metric-arrow">→</span> <strong>66.48%</strong></dt><dd>continual Overall Acc. <span>Recovery: 12.50 → 25.69%</span></dd></div>
-        </dl>
+        <nav class="chapter-index" aria-label="Research chapters"><span>In this research</span><a href="#method"><small>01</small> The method <span>↗</span></a><a href="#demo"><small>02</small> The evidence <span>↗</span></a><a href="#results"><small>03</small> The results <span>↗</span></a><a href="#taxonomy"><small>04</small> The taxonomy <span>↗</span></a></nav>
       </section>
 
       <section class="landing-pipeline section-shell" id="method" aria-label="CUADebug workflow overview">
+        <div class="section-intro split-intro chapter-intro"><div><p class="section-kicker">01 / The method</p><h2>From a failed trajectory<br />to a repairable cause.</h2></div><p>Inspect. Localize. Diagnose. Re-rollout.</p></div>
         <figure class="paper-figure pipeline-figure">
           <button class="figure-open" type="button" data-figure="./assets/paper/cuadebug-pipeline.png" data-figure-title="CUADebugger pipeline" aria-label="Expand CUADebugger pipeline"><img src="./assets/paper/cuadebug-pipeline.png" width="3213" height="1456" alt="Current CUADebugger pipeline: inspect a real P1 trajectory, localize the step-6 visual hallucination, emit structured RCA, retrieve optional episodic memory, and guide continual re-rollout." /><span class="figure-open-hint" aria-hidden="true"><svg class="ui-icon"><use href="#icon-expand"/></svg> Expand figure</span></button>
           <figcaption><strong>Pipeline.</strong> CUADebugger inspects failed trajectories, produces structured RCA, retrieves relevant memories, and guides re-rollout.</figcaption>
@@ -124,7 +132,7 @@
       <section class="demo-section" id="demo" aria-labelledby="demo-title">
         <div class="section-shell wide-shell">
           <div class="section-intro centered compact-intro">
-            <p class="section-kicker">Interactive evidence</p>
+            <p class="section-kicker">02 / The evidence</p>
             <h2 id="demo-title">Explore selected aligned trajectories.</h2>
             <p>Examples span perception, grounding and interaction, reasoning and control, and external or system failures.</p>
           </div>
@@ -220,10 +228,11 @@
       <section class="results-section" id="results" aria-labelledby="results-title">
         <div class="section-shell">
           <div class="section-intro split-intro">
-            <div><p class="section-kicker">Results</p><h2 id="results-title">Diagnosis and re-execution.</h2></div>
+            <div><p class="section-kicker">03 / The results</p><h2 id="results-title">Diagnosis and re-execution.</h2></div>
             <p>Headline RCA and recovery use N=144 Claude failures; Overall Acc. uses all 361 tasks.</p>
           </div>
           <div class="result-grid">
+            <article class="result-card benchmark-count"><p>CUAErrorBench</p><h3>204</h3><h4>human-annotated failures</h4><a href="#taxonomy">Explore the taxonomy <span aria-hidden="true">↗</span></a></article>
             <article class="result-card featured">
               <p>RCA · Gemini 2.5 Pro debugger</p><h3><span>11.1%</span><i>→</i><strong>19.4%</strong></h3><h4>Tag+Step Exact</h4>
               <div class="comparison-bars" aria-label="Joint diagnosis improved from 11.1 percent to 19.4 percent"><span><i style="--value: 11.1%"></i><b>Naive 11.1</b></span><span><i style="--value: 19.4%"></i><b>CUADebug 19.4</b></span></div>
@@ -317,7 +326,7 @@
 
       <section class="taxonomy-section section-shell" id="taxonomy" aria-labelledby="taxonomy-title">
         <div class="section-intro split-intro">
-          <div><p class="section-kicker">CUA error taxonomy</p><h2 id="taxonomy-title">Five families. Thirty defined subtypes.</h2></div>
+          <div><p class="section-kicker">04 / The taxonomy</p><h2 id="taxonomy-title">Five families.<br />Thirty defined subtypes.</h2></div>
           <p>The paper taxonomy separates what the agent perceived, where it acted, how it reasoned, what the system did, and whether the task was feasible.</p>
         </div>
         <div class="taxonomy-grid">

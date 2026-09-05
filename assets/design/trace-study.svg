@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="600" viewBox="0 0 700 600" fill="none">
+  <title>A study of a trajectory</title>
+  <desc>Fine organic traces gather around one small marked point, then continue as an ordered set of paths. An abstract illustration, not experimental evidence.</desc>
+  <defs>
+    <pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".55" fill="#262722" opacity=".22"/>
+    </pattern>
+    <pattern id="close-dots" width="5" height="5" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r=".55" fill="#262722" opacity=".2"/>
+    </pattern>
+  </defs>
+
+  <path d="M119 347C78 283 110 190 187 163C233 145 275 173 296 224C324 294 277 368 218 387C175 401 141 383 119 347Z" fill="url(#dots)"/>
+  <path d="M409 109C470 102 527 127 550 172C570 210 543 252 497 253C450 254 431 221 416 185C403 154 394 126 409 109Z" fill="url(#close-dots)"/>
+
+  <g stroke="#2d2e28" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity=".24" stroke-width=".8">
+      <path d="M98 438C176 432 125 233 219 215C303 198 201 404 287 385C354 370 284 262 360 263"/>
+      <path d="M126 463C209 411 130 307 160 242C196 167 276 179 269 259C262 340 222 459 322 420C371 401 290 283 360 263"/>
+      <path d="M132 418C190 405 153 352 183 311C221 259 288 307 263 355C240 399 218 240 289 212C342 191 299 286 360 263"/>
+      <path d="M164 491C188 402 161 404 214 348C259 301 167 219 210 166C244 124 319 188 298 270C286 317 333 303 360 263"/>
+      <path d="M90 388C179 402 197 461 249 420C294 385 235 277 264 258C297 237 292 294 360 263"/>
+      <path d="M201 512C212 451 307 440 299 377C290 307 236 335 237 282C238 230 334 345 360 263"/>
+      <path d="M114 487C231 440 270 482 310 432C354 377 268 378 283 320C300 255 333 305 360 263"/>
+    </g>
+
+    <g stroke-width="1.25">
+      <path d="M119 462C201 449 178 333 186 290C199 219 252 218 244 280C235 348 216 389 257 387C310 385 252 278 298 247C323 230 333 258 360 263"/>
+      <path d="M169 488C182 446 263 426 264 387C265 340 200 372 223 309C248 241 323 347 360 263"/>
+      <path d="M213 493C224 426 314 430 304 376C294 324 265 367 268 304C270 259 328 296 360 263"/>
+      <path d="M360 263C410 246 456 213 514 151"/>
+      <path d="M360 263C433 277 494 259 564 205"/>
+      <path d="M360 263C413 305 495 307 586 277"/>
+      <path d="M360 263C399 334 463 350 565 348"/>
+    </g>
+
+    <g stroke-width=".8" opacity=".58">
+      <path d="M405 243C410 221 416 197 426 177"/>
+      <path d="M437 224C460 220 482 215 502 204"/>
+      <path d="M470 193C476 174 482 160 489 146"/>
+      <path d="M418 270C438 252 449 235 456 218"/>
+      <path d="M478 255C505 256 527 250 546 239"/>
+      <path d="M418 296C439 300 457 295 471 285"/>
+      <path d="M497 297C519 304 541 307 560 303"/>
+      <path d="M427 333C439 320 446 310 449 299"/>
+      <path d="M484 346C505 359 527 367 548 368"/>
+    </g>
+
+    <g fill="#f7f6f2" stroke-width="1.1">
+      <circle cx="514" cy="151" r="3"/>
+      <circle cx="564" cy="205" r="3"/>
+      <circle cx="586" cy="277" r="3"/>
+      <circle cx="565" cy="348" r="3"/>
+      <circle cx="186" cy="290" r="2.5"/>
+      <circle cx="264" cy="387" r="2.5"/>
+      <circle cx="304" cy="376" r="2.5"/>
+    </g>
+  </g>
+
+  <circle cx="360" cy="263" r="20" fill="#f7f6f2"/>
+  <circle cx="360" cy="263" r="17" stroke="#6e7962" stroke-width=".8" opacity=".58"/>
+  <circle cx="360" cy="263" r="5.5" fill="#6e7962"/>
+  <path d="M360 233V238M360 288V293M330 263H335M385 263H390" stroke="#6e7962" stroke-width=".8"/>
+
+  <path d="M123 529H586" stroke="#2d2e28" stroke-width=".65" opacity=".2"/>
+  <path d="M123 526V532M586 526V532" stroke="#2d2e28" stroke-width=".65" opacity=".35"/>
+  <circle cx="610" cy="110" r="1.5" fill="#2d2e28" opacity=".5"/>
+  <path d="M605 110H599M610 105V99" stroke="#2d2e28" stroke-width=".6" opacity=".35"/>
+</svg>
