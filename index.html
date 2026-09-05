@@ -12,7 +12,9 @@
     <meta property="og:image" content="./assets/paper/why-cua-failures-are-hard.png" />
     <title>CUADebug — Diagnosing and Repairing Computer-Use Agent Failures</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./css/styles.css?v=20260905-1" />
+    <link rel="preload" href="./assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./css/styles.css?v=20260905-2" />
+    <link rel="stylesheet" href="./css/presentation.css?v=20260905-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -36,9 +38,20 @@
       }
     </script>
     <script src="./js/app.js?v=20260905-1" defer></script>
+    <script src="./js/presentation.js?v=20260905-2" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="0" height="0">
+      <defs>
+        <symbol id="icon-paper" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+        <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></symbol>
+        <symbol id="icon-data" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 4 16 4 16 0V5M4 12v7c0 4 16 4 16 0v-7"/></symbol>
+        <symbol id="icon-play" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7Z"/></symbol>
+        <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      </defs>
+    </svg>
 
     <header class="site-header">
       <div class="header-inner">
@@ -46,7 +59,7 @@
           <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
           <span>CUA<strong>Debug</strong></span>
         </a>
-        <nav class="site-nav" aria-label="Primary navigation">
+        <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation">
           <a href="#demo">Demo</a><a href="#method">Method</a><a href="#results">Results</a><a href="#rerollout">Re-rollout</a><a href="#taxonomy">Taxonomy</a><a href="#cases">Cases</a>
         </nav>
         <div class="header-actions">
@@ -54,13 +67,14 @@
           <a href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer">Code</a>
           <a class="header-primary" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer">Dataset</a>
         </div>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span></button>
       </div>
     </header>
 
     <main id="main">
       <section class="paper-hero section-shell" id="top" aria-labelledby="paper-title">
         <p class="venue-line">EMNLP 2026</p>
-        <h1 id="paper-title">CUADebug: Diagnosing and Repairing <br />Computer-Use Agent Failures</h1>
+        <h1 id="paper-title"><span class="title-brand">CUADebug:</span> Diagnosing and Repairing <br />Computer-Use Agent Failures</h1>
         <p class="authors" aria-label="Paper authors">
           <span>Weijia Zhang<sup>1§</sup></span><span>Kunlun Zhu<sup>1§</sup></span><span>Zeyi Liu<sup>1</sup></span>
           <span>Yinting Chen<sup>1</sup></span><span>Tianyi Ma<sup>1</sup></span><span>Jiateng Liu<sup>1</sup></span>
@@ -76,22 +90,22 @@
         </p>
         <p class="hero-summary">CUADebug localizes the earliest causal error, grounds it in trajectory evidence, and guides re-execution.</p>
         <div class="paper-links" aria-label="Project links">
-          <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon">P</span><span><strong>Paper</strong><small>arXiv</small></span></a>
-          <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span class="button-icon">&lt;/&gt;</span><span><strong>Code</strong><small>GitHub</small></span></a>
-          <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon">HF</span><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
-          <a class="paper-button" href="#demo"><span class="button-icon">▶</span><span><strong>Demo</strong><small>Aligned cases</small></span></a>
+          <a class="paper-button primary" href="https://arxiv.org/abs/2608.02643" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-paper"/></svg></span><span><strong>Paper</strong><small>arXiv</small></span></a>
+          <a class="paper-button" href="https://github.com/AgentDebugX/AgentDebugX" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-code"/></svg></span><span><strong>Code</strong><small>GitHub</small></span></a>
+          <a class="paper-button" href="https://huggingface.co/datasets/CyT1ng/cua_debugger_traj" target="_blank" rel="noreferrer"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-data"/></svg></span><span><strong>Dataset</strong><small>CUAErrorBench</small></span></a>
+          <a class="paper-button" href="#demo"><span class="button-icon"><svg class="ui-icon" aria-hidden="true"><use href="#icon-play"/></svg></span><span><strong>Demo</strong><small>Aligned cases</small></span></a>
         </div>
         <dl class="headline-results" aria-label="Headline paper results">
           <div><dt>204</dt><dd>human-annotated failures</dd></div>
-          <div><dt>11.1 → 19.4%</dt><dd>Tag+Step Exact <span>Gemini 2.5 Pro debugger · Claude N=144</span></dd></div>
-          <div><dt>61.77 → 68.14%</dt><dd>single Overall Acc. <span>Recovery: 13.89 → 29.86%</span></dd></div>
-          <div><dt>61.22 → 66.48%</dt><dd>continual Overall Acc. <span>Recovery: 12.50 → 25.69%</span></dd></div>
+          <div><dt><span class="metric-before">11.1</span> <span class="metric-arrow">→</span> <strong>19.4%</strong></dt><dd>Tag+Step Exact <span>Gemini 2.5 Pro debugger · Claude N=144</span></dd></div>
+          <div><dt><span class="metric-before">61.77</span> <span class="metric-arrow">→</span> <strong>68.14%</strong></dt><dd>single Overall Acc. <span>Recovery: 13.89 → 29.86%</span></dd></div>
+          <div><dt><span class="metric-before">61.22</span> <span class="metric-arrow">→</span> <strong>66.48%</strong></dt><dd>continual Overall Acc. <span>Recovery: 12.50 → 25.69%</span></dd></div>
         </dl>
       </section>
 
       <section class="landing-pipeline section-shell" id="method" aria-label="CUADebug workflow overview">
         <figure class="paper-figure pipeline-figure">
-          <img src="./assets/paper/cuadebug-pipeline.png" width="3213" height="1456" alt="Current CUADebugger pipeline: inspect a real P1 trajectory, localize the step-6 visual hallucination, emit structured RCA, retrieve optional episodic memory, and guide continual re-rollout." />
+          <button class="figure-open" type="button" data-figure="./assets/paper/cuadebug-pipeline.png" data-figure-title="CUADebugger pipeline" aria-label="Expand CUADebugger pipeline"><img src="./assets/paper/cuadebug-pipeline.png" width="3213" height="1456" alt="Current CUADebugger pipeline: inspect a real P1 trajectory, localize the step-6 visual hallucination, emit structured RCA, retrieve optional episodic memory, and guide continual re-rollout." /><span class="figure-open-hint" aria-hidden="true"><svg class="ui-icon"><use href="#icon-expand"/></svg> Expand figure</span></button>
           <figcaption><strong>Pipeline.</strong> CUADebugger inspects failed trajectories, produces structured RCA, retrieves relevant memories, and guides re-rollout.</figcaption>
         </figure>
       </section>
@@ -102,7 +116,7 @@
           <h2 id="teaser-title">The visible failure may follow an earlier mistake.</h2>
         </div>
         <figure class="paper-figure teaser-figure">
-          <img src="./assets/paper/why-cua-failures-are-hard.png" width="3213" height="1799" alt="A real Calc-to-Thunderbird trajectory: the payment record lists Fox, Iron, Nancy, and Stella as unpaid, but the agent invents Kelly, omits Fox, and enters the wrong reminder recipients." />
+          <button class="figure-open" type="button" data-figure="./assets/paper/why-cua-failures-are-hard.png" data-figure-title="Why CUA failures are hard to diagnose" aria-label="Expand motivating example"><img src="./assets/paper/why-cua-failures-are-hard.png" width="3213" height="1799" alt="A real Calc-to-Thunderbird trajectory: the payment record lists Fox, Iron, Nancy, and Stella as unpaid, but the agent invents Kelly, omits Fox, and enters the wrong reminder recipients." /><span class="figure-open-hint" aria-hidden="true"><svg class="ui-icon"><use href="#icon-expand"/></svg> Expand figure</span></button>
           <figcaption><strong>Motivating example.</strong> Why CUA failures require root-cause diagnosis rather than terminal-state inspection.</figcaption>
         </figure>
       </section>
@@ -115,6 +129,7 @@
             <p>Examples span perception, grounding and interaction, reasoning and control, and external or system failures.</p>
           </div>
 
+          <div class="workspace-chrome" aria-hidden="true"><span class="workspace-dots"><i></i><i></i><i></i></span><span>CUADebug <b>/</b> Trajectory explorer</span><span class="workspace-live">Visual evidence</span></div>
           <div class="viewer" id="viewer-app" role="region" aria-labelledby="case-title" aria-busy="true" tabindex="-1">
             <aside class="case-rail" aria-label="Representative trajectory cases">
               <div class="rail-heading"><span>Case library</span><strong>Human–debugger aligned</strong></div>
@@ -146,7 +161,7 @@
                   <span>Step <strong id="step-number">--</strong> / <span id="step-total">--</span></span>
                   <button id="next-step" type="button" aria-label="Next step" disabled>→</button>
                 </div>
-                <div class="pair-toggle" id="pair-toggle" aria-label="Screenshot state">
+                <div class="pair-toggle" id="pair-toggle" role="group" aria-label="Screenshot state">
                   <button type="button" data-pair="before">Before action</button><button type="button" data-pair="after" class="active">After action</button>
                 </div>
                 <span class="screen-state" id="screen-label">Post-action state</span>
@@ -237,7 +252,7 @@
                   <div><span>Table 3</span><strong>Single re-rollout</strong></div>
                   <p>Claude 4.5 Sonnet · N=144 failures</p>
                 </div>
-                <div class="table-scroll">
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Single re-rollout results, scroll horizontally for all columns">
                   <table class="rollout-table">
                     <thead>
                       <tr>
@@ -266,7 +281,7 @@
                   <div><span>Table 4</span><strong>Continual re-rollout</strong></div>
                   <p>Claude 4.5 Sonnet · N=144 failures</p>
                 </div>
-                <div class="table-scroll">
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Continual re-rollout results, scroll horizontally for all columns">
                   <table class="rollout-table">
                     <thead>
                       <tr>
@@ -294,8 +309,8 @@
             <p class="rollout-table-note">Single re-rollout compares complete packages because restart sources and prompt formats differ.</p>
           </section>
           <div class="result-figures">
-            <figure class="paper-figure"><img src="./assets/paper/failure-distribution.png" width="1808" height="952" alt="Distribution of 204 human annotations across five failure families and three trajectory sources." /><figcaption><strong>Benchmark distribution.</strong> CUAErrorBench annotation distribution by trajectory source.</figcaption></figure>
-            <figure class="paper-figure"><img src="./assets/paper/category-rca-f1.png" width="1808" height="1152" alt="Category-level root-cause analysis F1 for Claude 4.5 Sonnet trajectories diagnosed by Gemini 2.5 Pro." /><figcaption><strong>RCA by category.</strong> Category-level RCA F1 for the CUADebugger trial using Gemini 2.5 Pro as the debugger on Claude 4.5 Sonnet trajectories (144-task split), including the Others (O) category.</figcaption></figure>
+            <figure class="paper-figure"><button class="figure-open" type="button" data-figure="./assets/paper/failure-distribution.png" data-figure-title="Benchmark distribution" aria-label="Expand benchmark distribution"><img src="./assets/paper/failure-distribution.png" width="1808" height="952" alt="Distribution of 204 human annotations across five failure families and three trajectory sources." /><span class="figure-open-hint" aria-hidden="true"><svg class="ui-icon"><use href="#icon-expand"/></svg> Expand figure</span></button><figcaption><strong>Benchmark distribution.</strong> CUAErrorBench annotation distribution by trajectory source.</figcaption></figure>
+            <figure class="paper-figure"><button class="figure-open" type="button" data-figure="./assets/paper/category-rca-f1.png" data-figure-title="Category-level RCA F1" aria-label="Expand category-level RCA F1"><img src="./assets/paper/category-rca-f1.png" width="1808" height="1152" alt="Category-level root-cause analysis F1 for Claude 4.5 Sonnet trajectories diagnosed by Gemini 2.5 Pro." /><span class="figure-open-hint" aria-hidden="true"><svg class="ui-icon"><use href="#icon-expand"/></svg> Expand figure</span></button><figcaption><strong>RCA by category.</strong> Category-level RCA F1 for the CUADebugger trial using Gemini 2.5 Pro as the debugger on Claude 4.5 Sonnet trajectories (144-task split), including the Others (O) category.</figcaption></figure>
           </div>
         </div>
       </section>
@@ -350,6 +365,11 @@
       </section>
 
     </main>
+
+    <dialog class="figure-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title">
+      <div class="figure-dialog-header"><h2 id="figure-dialog-title">Paper figure</h2><div><button id="figure-zoom" type="button" aria-pressed="false"><span data-zoom-label>Full size</span></button><button type="button" data-close-figure aria-label="Close figure"><svg class="ui-icon" aria-hidden="true"><use href="#icon-close"/></svg></button></div></div>
+      <div class="figure-dialog-body"><img id="figure-dialog-image" alt="" /></div>
+    </dialog>
 
     <footer class="site-footer">
       <div class="section-shell footer-inner">
