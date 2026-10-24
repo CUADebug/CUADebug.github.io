@@ -49,4 +49,6 @@ The interaction idea of selecting a task and inspecting linked static trajectory
 
 GIMP, GNU, Ubuntu, Visual Studio Code, LibreOffice, and other third-party names or interface elements visible in trajectory screenshots or paper figures belong to their respective owners. Their appearance identifies the recorded task environment and does not imply endorsement.
 
+The University of Illinois Urbana-Champaign, Stanford University, and Yale University wordmarks in `assets/logos/` are trademarks of their respective institutions. They identify the authors' affiliations and do not imply institutional endorsement.
+
 The Apache License 2.0 text is included at [`LICENSES/Apache-2.0.txt`](./LICENSES/Apache-2.0.txt).

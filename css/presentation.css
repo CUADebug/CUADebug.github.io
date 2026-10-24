@@ -59,6 +59,11 @@ main::before { content: ''; position: absolute; inset: 0 0 auto; height: 940px; 
 .authors { margin-top: 13px; gap: 4px 13px; color: #41618e; font-size: 12.5px; line-height: 1.5; }
 .authors > span { white-space: nowrap; }
 .affiliations { margin-top: 4px; gap: 3px 14px; color: #617087; font-size: 10px; line-height: 1.5; }
+.affiliation-logos { margin-top: 16px; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 14px 34px; }
+.affiliation-logos img { width: auto; display: block; }
+.affiliation-logos .logo-illinois { height: 36px; }
+.affiliation-logos .logo-stanford { height: 22px; }
+.affiliation-logos .logo-yale { height: 27px; }
 .hero-summary { margin-top: 12px; color: #55667d; font-size: 14px; }
 .paper-links { width: fit-content; max-width: 100%; margin-top: 14px; display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; }
 .paper-hero .paper-button { min-width: 137px; padding: 8px 16px; gap: 10px; border-radius: 10px; background: #ffffffd9; box-shadow: 0 2px 3px #162f5010; }
@@ -358,6 +363,10 @@ html.has-open-figure { overflow: hidden; scrollbar-gutter: stable; }
   .venue-line { font-size: 9px; margin-bottom: 15px; }
   .authors { gap: 4px 10px; font-size: 11px; margin-top: 16px; }
   .affiliations { margin-top: 9px; gap: 4px 12px; font-size: 9px; }
+  .affiliation-logos { margin-top: 14px; gap: 10px 22px; }
+  .affiliation-logos .logo-illinois { height: 29px; }
+  .affiliation-logos .logo-stanford { height: 18px; }
+  .affiliation-logos .logo-yale { height: 22px; }
   .hero-summary { margin-top: 14px; font-size: 12px; line-height: 1.7; }
   .paper-links { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
   .paper-hero .paper-button { min-width: 0; padding: 10px 12px; }
